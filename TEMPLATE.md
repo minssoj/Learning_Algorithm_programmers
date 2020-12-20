@@ -39,8 +39,9 @@ l_1 = list(map(int, input()))   # 입력받은 문자열 리스트변환
 ```
 * Ex.리스트로 문자열
 ```python
+# 주의 : 숫자 문자열
 l = [1,2,3,4]
-s = int(''.join(l))
+s = str(int(''.join(l)))
 ```
 * Ex. 기타
 ```python
@@ -256,6 +257,11 @@ start = 4
 end = 5
 bisect_left(l, start)       # 최소값 들어갈 index
 bisect_right(l, end)        # 최대값 들어갈 index
+```
+* 아스키코드
+```python
+ord('A')
+chr()
 ```
 
 # =======================================================================
