@@ -263,9 +263,65 @@ bisect_right(l, end)        # 최대값 들어갈 index
 ord('A')
 chr()
 ```
+* 정규 표현식
+```python
+# 숫자 : \d, 공백: \s, 문자 +숫자 : \w
+a.b     # a + 모든 문자 + b
+ca*t    # a 0회이상
+ca+t    # a 1회 이상
+ca{2,5}t# a 2 ~5회
+ca?t    # a 있어도 없어도
+import re
+p = re.compile('ab*')
+m = p.match("python")
+print(m.group)
+m = p.search("python")  # match와의 차이점 : 처음부터 하는 것이 아니다
+result = p.findall("life is too short")
+```
 
-# =======================================================================
+
+# ---
 * Ex.
 ```python
 
+```
+
+
+
+## 예시
+*해시
+```python
+def solution(genres, plays):
+    song = dict()
+    num_play = dict()
+    answer = []
+
+    for i in range(len(genres)):
+        # 장르 내부 정렬을 위해 song에 삽입
+        genre = genres[i]
+        play = plays[i]
+        if genre in song:
+            song[genre].append([-1 * play , i ])
+            song[genre].sort()
+        else:
+            song[genre] = [[(-1) * play , i ]]
+        
+        # 장르 순위를 매기기 위한 플레이수 합
+        if genre in num_play:
+            num_play[genre] += play
+        else:
+            num_play[genre] = play
+        
+    # 장르별로 줄 세우고, 그 장르 안에서 2개 추출
+    genre_p = []
+    for genre in num_play.keys():
+        genre_p.append([num_play[genre],genre])
+    genre_p.sort(reverse=True)
+    
+    for _, genre in genre_p:
+        for i in range(2):
+            answer.append(song[genre][i][1])
+            if len(song[genre]) == 1:
+                break
+    return answer
 ```
