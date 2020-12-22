@@ -10,6 +10,8 @@ from itertools import permutations, combinations, product, combinations_with_rep
 from collections import Counter                     # 카운터
 from collections import defaultdict                 # defaultdict
 from bisect import bisect_left, bisect_right        # 이진탐색    
+import re
+from functools import cmp_to_key
 ```
 
 ## 📌  입력
@@ -48,6 +50,8 @@ s = str(int(''.join(l)))
 s = 'abcd'
 s.replace('?','a')      # 대체
 s.split("},{")          # 분할
+
+s.count('1', 0, 3)
 ```
 
 ## 📌 Array
@@ -277,6 +281,16 @@ m = p.match("python")
 print(m.group)
 m = p.search("python")  # match와의 차이점 : 처음부터 하는 것이 아니다
 result = p.findall("life is too short")
+
+file_num = sorted(input_, key=lambda x : int(re.findall('\d+', x)[0]))
+final = sorted(file_num, key=lambda x : re.split('\d+', x.lower())[0])
+```
+* 정렬 tip - cmp_to_key
+```python
+from functools import cmp_to_key
+def func(a,b):
+    return 1 # 1이면 b를 앞으로, -1이면 a를 앞으로
+sorted(l, key=cmp_to_key(func))
 ```
 
 
