@@ -38,6 +38,7 @@ n, m = map(int, input().split)      # 여러 변수에 입력 저장
 s = 'abcd'
 l = list(map(int, s))           # 기존 문자열 리스트변환
 l_1 = list(map(int, input()))   # 입력받은 문자열 리스트변환
+l = list(map(str, s))           # 분리하여 리스트화
 ```
 * Ex.리스트로 문자열
 ```python
