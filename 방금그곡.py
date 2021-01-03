@@ -1,11 +1,11 @@
 def changecode(code):
     code = code.replace("C#", "c")
-    code = music.replace("D#", "d")
-    code = music.replace("F#", "f")
-    code = music.replace("G#", "g")
-    code = music.replace("A#", "a")
+    code = code.replace("D#", "d")
+    code = code.replace("F#", "f")
+    code = code.replace("G#", "g")
+    code = code.replace("A#", "a")
 
-    return music
+    return code
 
 
 def solution(m, musicinfos):
