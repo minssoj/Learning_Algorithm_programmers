@@ -61,6 +61,12 @@ s.count('1', 0, 3)
 n, m = 2, 3
 a = [[0]*n for _ in range(m) ]
 ```
+
+* 열별로 묶기
+```python
+for B_col in zip(*B)
+```
+
 * Ex. 행렬 뒤집기
 ```python
 array = [[1, 2, 3],[4,5, 6],[7, 8, 9]]
@@ -293,6 +299,19 @@ def func(a,b):
     return 1 # 1이면 b를 앞으로, -1이면 a를 앞으로
 sorted(l, key=cmp_to_key(func))
 ```
+* Ex.
+```python
+#최대공약수:
+import math
+def gcd_(a, b):
+    if a % b == 0: return b 
+    else: return gcd_(b, (a % b))
+math.gcd(x,y)
+#최소공배수:
+math.lcm(x,y)
+x*y//math.gcd(x,y)
+```
+
 
 
 # ---
