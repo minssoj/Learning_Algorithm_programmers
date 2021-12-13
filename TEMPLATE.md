@@ -236,9 +236,11 @@ s1 & s2
 ```python
 from itertools import permutations, combinations, product, combinations_with_replacement
 data = ['A', 'B', 'C']
+data1 = ['D', 'E']
 result_p = list(permutations(data,2))
 result_c = list(combinations(data,2))
-result_pp = list(product(data,2))
+result_pp = list(product(data,data1))       # 두개 이상의 리스트에서 데카르트곱 (각 리스트에서 하나씩)
+result_pp = list(product(data,repeat=2))    # data와 data에서 
 result_cc = list(combinations_with_replacement(data, 2))
 ```
 
