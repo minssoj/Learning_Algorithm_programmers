@@ -4,7 +4,7 @@
 * DFS (재귀함수)
   * 방문표시, 출력 or 연산, 다른 노드 방문
   * 종료 조건 필요 (예를 들어 좌표계 벗어남)
-```
+```python
 def dfs(graph, v, visited):
   # 종료 조건 필요
   visited[v] = True
@@ -16,7 +16,7 @@ def dfs(graph, v, visited):
 
 * BFS (큐)
   * 큐 생성, 방문표시, 큐가 빌때까지 방문하지 않은 원소들 큐에 삽입
-```
+```python
 def bfs(graph, start, visited):
   queue = deque([start])
   visited[start] = True
