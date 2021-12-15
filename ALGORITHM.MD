@@ -51,9 +51,59 @@ def binary_search(array, target, start, end):
   return None
 ```
 
-## 📌 DP
-
 ## 📌 최단경로
+* 다익스트라
+  * 특정노드 -> 모든 노드
+  * `음의 간선` 없을때
+  * Version 1
+  ```python
+  # version 1
+  def get_smallest_node():
+    min_value = INF
+    index = 0
+    for i in range(1, n+1):
+      if distance[i] < min_value and not visited[i]:
+        min_value = distance[i]
+        index = i
+    return index
+
+  def dijkstra(start):
+    distance[start] = 0
+    visited[start] = True
+
+    for j in graph[start]:
+      distance[j[0]] =j[1]
+
+    for i in range(n-1):
+      now = get_smallest_node()
+      visited[now] = True
+
+      for j in graph[now]:
+        cost = distance[now]+j[1]
+        if cost <distance[j[0]]:
+          distance[j[0]] = cost
+  ```
+  * Version 2
+  ```python
+  def dijkstra(start):
+  q = []
+  heapq.heappush(q, (0, start))
+  distance[start]  = 0 
+
+  while q:
+    dist, now = heapq.heappop(q)
+    if distance[now] < dist:
+      continue
+    for i in graph[now]:
+      cost = dist + i[1]
+      if cost <distance[i[0]]:
+        distance[i[0]] = cost
+        heapq.heappush(q, (cost, i[0]))
+  ```
+  
 * 플루이드 워셜
+```python
+
+```
 
 ## 📌 그래프 이론
