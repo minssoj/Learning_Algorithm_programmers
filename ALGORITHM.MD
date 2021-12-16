@@ -110,5 +110,49 @@ for k in range(1, n+1):
 ```
 
 ## 📌 그래프 이론
+* 서로소
+  * 특정 원소가 속한 집합 찾기 (루트 노드 찾기)
+  ```python
+  def find_parent (parent , x ) :
+    if parent [x] != x:
+        parent [x] = find_parent(parent, parent[x])
+    return parent[x]
+  ```
+  * 집합 합치기
+  ```python
+  def union_parent(parent, a, b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
+  ```
 * 크루스칼 알고리즘
+```python
+edge.sort()
+for edge in edges:
+    cost, a, b = edge
+    if find_parent(parent, a) != find_parent(parent, b):
+        union_parent(parent, a, b)
+        result += cost
+```
 * 위상정렬
+```python
+def topology_sort():
+    result = []
+    q = deque()
+    
+    for i in range(1, v+1):
+        if indegree[i] == 0:
+            q.append(i)
+    
+    while q:
+        now = q.popleft()
+        result.append(now)
+        
+        for i in graph[now]:
+            indegree[i] -= 1
+            if indegree[i] == 0:
+                q.append(i)
+```
